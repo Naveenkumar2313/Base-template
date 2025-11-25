@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import { Navigate } from "react-router-dom";
+import LoginPage from "./views/sessions/LoginPage";
 
 import ParcLayout from "./components/ParcLayout/ParcLayout";
 import DefaultDashboard from "./views/dashboard/DefaultDashboard";
@@ -9,7 +10,8 @@ const Dummy1 = () => <div style={{textAlign: 'center', marginTop: '20vh', fontSi
 const Dummy2 = () => <div style={{textAlign: 'center', marginTop: '20vh', fontSize: 32}}>Dummy Page 2</div>;
 
 const routes = [
-  { path: "/", element: <Navigate to="dashboard/default" /> },
+  { path: "/", element: <Navigate to="/session/signin" /> },
+  { path: "/session/signin", element: <LoginPage /> },
   {
     element: <ParcLayout />,
     children: [

@@ -5,6 +5,8 @@ import styled from "@mui/material/styles/styled";
 import { ParcVerticalNav } from "app/components";
 import useSettings from "app/hooks/useSettings";
 import navigations from "app/navigations";
+import { useAuth } from "app/contexts/AuthContext";
+import { facultyNavigations,adminNavigations, superAdminNavigations } from "app/navigations";
 
 // STYLED COMPONENTS
 const StyledScrollBar = styled(Scrollbar)(() => ({
@@ -26,7 +28,13 @@ const SideNavMobile = styled("div")(({ theme }) => ({
 }));
 
 export default function Sidenav({ children }) {
+  const { user } = useAuth(); // Get current user
   const { settings, updateSettings } = useSettings();
+
+  let items = [];
+  if (user?.role === 'faculty') items = facultyNavigations;
+  else if (user?.role === 'admin') items = adminNavigations;
+  else if (user?.role === 'superadmin') items = superAdminNavigations;
 
   const updateSidebarMode = (sidebarSettings) => {
     let activeLayoutSettingsName = settings.activeLayout + "Settings";
@@ -45,7 +53,7 @@ export default function Sidenav({ children }) {
     <Fragment>
       <StyledScrollBar options={{ suppressScrollX: true }}>
         {children}
-        <ParcVerticalNav items={navigations} />
+        <ParcVerticalNav items={items} />
       </StyledScrollBar>
 
       <SideNavMobile onClick={() => updateSidebarMode({ mode: "close" })} />
