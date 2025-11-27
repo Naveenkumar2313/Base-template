@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
-import { users as mockUsers } from '../data/mockData';
+import { users as mockUsers } from '../views/marks-management/data/mockData'; 
 
 const AuthContext = createContext(undefined);
 
