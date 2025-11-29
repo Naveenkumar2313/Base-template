@@ -5,7 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import { attainmentSummary, courses, studentsByCourse, coursePerformanceData } from '../data/mockData';
 import { useAuth } from '../auth/AuthContext';
 
-const Dashboard = () => {
+const FacultyDashboard = () => {
   const { user } = useAuth();
 
   if (!user) {
@@ -157,4 +157,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default FacultyDashboard;
