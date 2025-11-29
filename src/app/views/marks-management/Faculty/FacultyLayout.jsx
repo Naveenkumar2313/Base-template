@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MainLayout from '../shared/MainLayout'; // Updated path
-import { useAuth } from '../auth/AuthContext'; // Updated path
+import { useAuth } from 'app/contexts/AuthContext'; // Updated path
 import { Icons } from '../shared/icons'; // Updated path
 import Dashboard from './FacultyDashboard'; // Updated path
 import ArticulationMatrixPage from './ArticulationMatrixPage'; // Updated path

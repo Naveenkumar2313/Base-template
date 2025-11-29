@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../shared/Card';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { courses as mockCourses, coAttainmentData, poAttainmentData, attainmentSummary } from '../data/mockData';
-import { useAuth } from '../auth/AuthContext';
+import { useAuth } from 'app/contexts/AuthContext';
 
 const AttainmentReportPage = () => {
   const { user } = useAuth();

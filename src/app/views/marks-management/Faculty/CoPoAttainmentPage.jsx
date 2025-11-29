@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { courses as mockCourses, studentsByCourse, articulationMatrix, pos, psos } from '../data/mockData';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../shared/Card';
-import { useAuth } from '../auth/AuthContext';
+import { useAuth } from 'app/contexts/AuthContext';
 
 // --- CONFIGURATION FOR EXCEL-LIKE STRUCTURE ---
 const EXCEL_CONFIG = {

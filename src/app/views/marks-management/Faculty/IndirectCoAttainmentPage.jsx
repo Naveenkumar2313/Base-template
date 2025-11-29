@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../shared/Card';
 import { courses as mockCourses } from '../data/mockData';
-import { useAuth } from '../auth/AuthContext';
+import { useAuth } from 'app/contexts/AuthContext';
 
 const IndirectCoAttainmentPage = () => {
     const { user } = useAuth();

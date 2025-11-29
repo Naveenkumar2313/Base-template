@@ -1,18 +1,25 @@
+// Default navigations for the base template (optional, can be removed if not used)
+export const navigations = [
+  { name: "Dashboard", path: "/dashboard/default", icon: "dashboard" }
+];
+
+// Navigation items for FACULTY role
 export const facultyNavigations = [
   { label: "Faculty", type: "label" },
   { name: "Dashboard", path: "/faculty/dashboard", icon: "dashboard" },
-  { name: "Articulation Matrix", path: "/faculty/articulation", icon: "table_view" }, // Map Lucide icons to MUI string names or keep generic
+  { name: "Articulation Matrix", path: "/faculty/articulation", icon: "table_view" },
   { name: "Marks Entry", path: "/faculty/marks", icon: "edit" },
   { name: "Indirect CO", path: "/faculty/indirect-co", icon: "description" },
   { name: "CO-PO Attainment", path: "/faculty/copo-attainment", icon: "track_changes" },
-  { name: "Reports", path: "/faculty/reports", icon: "assessment" },
+  { name: "Reports", path: "/faculty/AttainmentReportPage", icon: "assessment" },
 ];
 
+// Navigation items for ADMIN role
 export const adminNavigations = [
   { label: "Admin", type: "label" },
   { name: "Dashboard", path: "/admin/dashboard", icon: "dashboard" },
   { name: "Manage Faculty", path: "/admin/faculty", icon: "people" },
-  { name: "Manage Courses", path: "/admin/courses", icon: "book" },
+  { name: "Manage Courses", path: "/admin/manage-courses", icon: "book" },
   { name: "Assign Courses", path: "/admin/assign-courses", icon: "assignment_ind" },
   { name: "Manage Outcomes", path: "/admin/outcomes", icon: "assignment" },
   { name: "Consolidated Matrix", path: "/admin/consolidation", icon: "grid_on" },
@@ -21,9 +28,11 @@ export const adminNavigations = [
   { name: "Indirect Attainment", path: "/admin/indirect-attainment", icon: "description" },
 ];
 
+// Navigation items for SUPER ADMIN role
 export const superAdminNavigations = [
   { label: "Super Admin", type: "label" },
   { name: "Dashboard", path: "/superadmin/dashboard", icon: "dashboard" },
-  { name: "Departments", path: "/superadmin/departments", icon: "business" },
-  { name: "Admins", path: "/superadmin/admins", icon: "supervisor_account" },
+  { name: "Department Attainment", path: "/superadmin/departments", icon: "business" },
+  // Add 'Admins' if you have created a route and component for it
+  // { name: "Manage Admins", path: "/superadmin/admins", icon: "supervisor_account" }, 
 ];

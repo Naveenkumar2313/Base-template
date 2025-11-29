@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../sh
 import { Icons } from '../shared/icons';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { attainmentSummary, courses, studentsByCourse, coursePerformanceData } from '../data/mockData';
-import { useAuth } from '../auth/AuthContext';
+import { useAuth } from 'app/contexts/AuthContext';
 
 const FacultyDashboard = () => {
   const { user } = useAuth();

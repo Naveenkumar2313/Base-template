@@ -4,9 +4,15 @@ import styled from "@mui/material/styles/styled";
 
 import { ParcVerticalNav } from "app/components";
 import useSettings from "app/hooks/useSettings";
-import navigations from "app/navigations";
 import { useAuth } from "app/contexts/AuthContext";
-import { facultyNavigations,adminNavigations, superAdminNavigations } from "app/navigations";
+
+// FIX: Import everything as named exports
+import { 
+  navigations, 
+  facultyNavigations, 
+  adminNavigations, 
+  superAdminNavigations 
+} from "app/navigations";
 
 // STYLED COMPONENTS
 const StyledScrollBar = styled(Scrollbar)(() => ({
@@ -28,10 +34,12 @@ const SideNavMobile = styled("div")(({ theme }) => ({
 }));
 
 export default function Sidenav({ children }) {
-  const { user } = useAuth(); // Get current user
+  const { user } = useAuth(); 
   const { settings, updateSettings } = useSettings();
 
-  let items = [];
+  // Determine which navigation items to show
+  let items = navigations; // Default fallback
+  
   if (user?.role === 'faculty') items = facultyNavigations;
   else if (user?.role === 'admin') items = adminNavigations;
   else if (user?.role === 'superadmin') items = superAdminNavigations;

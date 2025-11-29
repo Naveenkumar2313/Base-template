@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { courses as mockCourses, pos as mockPos, psos as mockPsos, articulationMatrix as mockArticulationMatrix } from '../data/mockData';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../shared/Card';
 import { Icons } from '../shared/icons';
-import { useAuth } from '../auth/AuthContext';
+import { useAuth } from 'app/contexts/AuthContext';
 
 const ConfirmationModal = ({ onConfirm, onCancel }) => {
     return (
