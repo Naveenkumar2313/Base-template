@@ -13,8 +13,12 @@ export const adminNavigations = [
   { name: "Dashboard", path: "/admin/dashboard", icon: "dashboard" },
   { name: "Manage Faculty", path: "/admin/faculty", icon: "people" },
   { name: "Manage Courses", path: "/admin/courses", icon: "book" },
+  { name: "Assign Courses", path: "/admin/assign-courses", icon: "assignment_ind" },
   { name: "Manage Outcomes", path: "/admin/outcomes", icon: "assignment" },
-  { name: "Consolidated Matrix", path: "/admin/matrix", icon: "grid_on" },
+  { name: "Consolidated Matrix", path: "/admin/consolidation", icon: "grid_on" },
+  { name: "Program Matrix", path: "/admin/program-matrix", icon: "table_chart" },
+  { name: "Evaluation Result", path: "/admin/evaluation-result", icon: "assessment" },
+  { name: "Indirect Attainment", path: "/admin/indirect-attainment", icon: "description" },
 ];
 
 export const superAdminNavigations = [

@@ -14,9 +14,15 @@ const CoPoAttainmentPage = lazy(() => import("./views/marks-management/faculty/C
 const AttainmentReportPage = lazy(() => import("./views/marks-management/faculty/AttainmentReportPage"));
 
 // --- ADMIN COMPONENTS ---
-const AdminDashboard = lazy(() => import("./views/marks-management/admin/AdminDashboard"));
-const ManageFaculty = lazy(() => import("./views/marks-management/admin/ManageFaculty"));
-const ConsolidatedMatrixPage = lazy(() => import("./views/marks-management/admin/ConsolidatedMatrixPage"));
+const AdminDashboard = lazy(() => import("./views/marks-management/Admin/AdminDashboard"));
+const FacultyManagement = lazy(() => import("./views/marks-management/Admin/FacultyManagement"));
+const CourseManagement = lazy(() => import("./views/marks-management/Admin/CourseManagement"));
+const CourseAssignment = lazy(() => import("./views/marks-management/Admin/CourseAssignment")); // You need to create this file too
+const OutcomesManagement = lazy(() => import("./views/marks-management/Admin/OutcomesManagement"));
+const ConsolidatedMatrixPage = lazy(() => import("./views/marks-management/Admin/ConsolidatedMatrixPage"));
+const ProgramLevelMatrixPage = lazy(() => import("./views/marks-management/Admin/ProgramLevelMatrixPage"));
+const EvaluationResultPage = lazy(() => import("./views/marks-management/Admin/EvaluationResultPage"));
+const IndirectAttainmentPage = lazy(() => import("./views/marks-management/Admin/IndirectAttainmentPage"));
 
 // --- SUPER ADMIN COMPONENTS ---
 const SuperAdminDashboard = lazy(() => import("./views/marks-management/superadmin/SuperAdminDashboard"));
@@ -40,8 +46,14 @@ const routes = [
 
       // --- ADMIN ROUTES ---
       { path: "/admin/dashboard", element: <AdminDashboard /> },
-      { path: "/admin/faculty", element: <ManageFaculty /> }, 
-      { path: "/admin/matrix", element: <ConsolidatedMatrixPage /> },
+        { path: "/admin/faculty", element: <FacultyManagement /> },
+        { path: "/admin/courses", element: <CourseManagement /> },
+        { path: "/admin/assign-courses", element: <CourseAssignment /> },
+        { path: "/admin/outcomes", element: <OutcomesManagement /> },
+        { path: "/admin/consolidation", element: <ConsolidatedMatrixPage /> },
+        { path: "/admin/program-matrix", element: <ProgramLevelMatrixPage /> },
+        { path: "/admin/evaluation-result", element: <EvaluationResultPage /> },
+        { path: "/admin/indirect-attainment", element: <IndirectAttainmentPage /> },
       // Add other admin routes defined in navigations.js
 
       // --- SUPER ADMIN ROUTES ---
