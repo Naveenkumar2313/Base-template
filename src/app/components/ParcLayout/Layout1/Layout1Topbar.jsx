@@ -16,12 +16,12 @@ import MailOutline from "@mui/icons-material/MailOutline";
 import StarOutline from "@mui/icons-material/StarOutline";
 import PowerSettingsNew from "@mui/icons-material/PowerSettingsNew";
 
-// import useAuth from "app/hooks/useAuth"; // Removed
+// 1. IMPORT USEAUTH CORRECTLY
+import { useAuth } from "app/contexts/AuthContext"; 
 import useSettings from "app/hooks/useSettings";
 import { NotificationProvider } from "app/contexts/NotificationContext";
 
 import { Span } from "app/components/Typography";
-// import ShoppingCart from "app/components/ShoppingCart"; // Removed
 import { ParcMenu, ParcSearchBox } from "app/components";
 import { NotificationBar } from "app/components/NotificationBar";
 import { themeShadows } from "app/components/ParcTheme/themeColors";
@@ -32,15 +32,15 @@ const StyledIconButton = styled(IconButton)(({ theme }) => ({
   color: theme.palette.text.primary
 }));
 
-const TopbarRoot = styled("div")({
+const TopbarRoot = styled("div")(({ theme }) => ({
   top: 0,
   zIndex: 96,
-  height: topBarHeight,
+  transition: "all 0.3s ease",
   boxShadow: themeShadows[8],
-  transition: "all 0.3s ease"
-});
+  height: topBarHeight
+}));
 
-const TopbarContainer = styled("div")(({ theme }) => ({
+const TopbarContainer = styled(Box)(({ theme }) => ({
   padding: "8px",
   paddingLeft: 18,
   paddingRight: 20,
@@ -49,18 +49,24 @@ const TopbarContainer = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "space-between",
   background: theme.palette.primary.main,
-  [theme.breakpoints.down("sm")]: { paddingLeft: 16, paddingRight: 16 },
-  [theme.breakpoints.down("xs")]: { paddingLeft: 14, paddingRight: 16 }
+  [theme.breakpoints.down("sm")]: {
+    paddingLeft: 16,
+    paddingRight: 16
+  },
+  [theme.breakpoints.down("xs")]: {
+    paddingLeft: 14,
+    paddingRight: 16
+  }
 }));
 
-const UserMenu = styled("div")({
-  padding: 4,
+const UserMenu = styled(Box)(() => ({
   display: "flex",
-  borderRadius: 24,
-  cursor: "pointer",
   alignItems: "center",
+  cursor: "pointer",
+  borderRadius: 24,
+  padding: 4,
   "& span": { margin: "0 8px" }
-});
+}));
 
 const StyledItem = styled(MenuItem)(({ theme }) => ({
   display: "flex",
@@ -83,11 +89,16 @@ const IconBox = styled("div")(({ theme }) => ({
 const Layout1Topbar = () => {
   const theme = useTheme();
   const { settings, updateSettings } = useSettings();
-  // const { logout, user } = useAuth(); // Removed
+  
+  // 2. GET USER AND LOGOUT FUNCTION
+  const { logout, user } = useAuth(); 
+
   const isMdScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const updateSidebarMode = (sidebarSettings) => {
-    updateSettings({ layout1Settings: { leftSidebar: { ...sidebarSettings } } });
+    updateSettings({
+      layout1Settings: { leftSidebar: { ...sidebarSettings } }
+    });
   };
 
   const handleSidebarToggle = () => {
@@ -100,10 +111,6 @@ const Layout1Topbar = () => {
     }
     updateSidebarMode({ mode });
   };
-
-  // Static user placeholder
-  const user = { name: "User", avatar: "" };
-  const logout = () => {};
 
   return (
     <TopbarRoot>
@@ -135,16 +142,15 @@ const Layout1Topbar = () => {
             <NotificationBar />
           </NotificationProvider>
 
-          {/* <ShoppingCart /> Removed */}
-
           <ParcMenu
             menuButton={
               <UserMenu>
                 <Span>
-                  Hi <strong>{user.name}</strong>
+                  {/* Handle case where user might be null initially */}
+                  Hi <strong>{user?.name || "User"}</strong>
                 </Span>
 
-                <Avatar src={user.avatar} sx={{ cursor: "pointer" }} />
+                <Avatar src={user?.avatar} sx={{ cursor: "pointer" }} />
               </UserMenu>
             }>
             <StyledItem>
@@ -155,7 +161,6 @@ const Layout1Topbar = () => {
             </StyledItem>
 
             <StyledItem>
-              {/* Profile item, no redirect */}
               <Person />
               <Span sx={{ marginInlineStart: 1 }}>Profile</Span>
             </StyledItem>
@@ -165,11 +170,10 @@ const Layout1Topbar = () => {
               <Span sx={{ marginInlineStart: 1 }}>Settings</Span>
             </StyledItem>
 
+            {/* 3. ATTACH LOGOUT FUNCTION HERE */}
             <StyledItem onClick={logout}>
               <PowerSettingsNew />
-              <Link to="/">
               <Span sx={{ marginInlineStart: 1 }}>Logout</Span>
-              </Link>
             </StyledItem>
           </ParcMenu>
         </Box>

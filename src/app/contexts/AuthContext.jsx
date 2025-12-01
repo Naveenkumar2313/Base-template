@@ -1,24 +1,42 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 import { users as mockUsers } from '../views/marks-management/data/mockData'; 
 
 const AuthContext = createContext(undefined);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  // 1. Initialize state from localStorage if available
+  const [user, setUser] = useState(() => {
+    try {
+      const savedUser = localStorage.getItem('user');
+      return savedUser ? JSON.parse(savedUser) : null;
+    } catch (error) {
+      console.error("Error parsing user from local storage", error);
+      return null;
+    }
+  });
 
-  const login = (email, role) => {
-    // In a real app, you'd verify password and fetch user data from an API
-    const foundUser = mockUsers.find(u => u.email === email && u.role === role);
-    if (foundUser) {
-      setUser(foundUser);
+  // 2. Login function: Accepts email, role, and the full user object
+  const login = (email, role, fullUserObject = null) => {
+    let userData = fullUserObject;
+
+    // Fallback: If full object wasn't passed, try to find it in mockData
+    if (!userData) {
+      userData = mockUsers.find(u => u.email === email && u.role === role);
+    }
+
+    if (userData) {
+      setUser(userData);
+      localStorage.setItem('user', JSON.stringify(userData)); // Save to storage
     } else {
-      // Handle failed login
       console.error("Login failed: User not found or role mismatch");
     }
   };
 
+  // 3. Logout function: Clears state and localStorage
   const logout = () => {
     setUser(null);
+    localStorage.removeItem('user');
+    window.location.href = '/session/signin'; // Force redirect to login
   };
 
   return (
@@ -35,3 +53,5 @@ export const useAuth = () => {
   }
   return context;
 };
+
+export default AuthContext;

@@ -33,6 +33,8 @@ export const superAdminNavigations = [
   { label: "Super Admin", type: "label" },
   { name: "Dashboard", path: "/superadmin/dashboard", icon: "dashboard" },
   { name: "Department Attainment", path: "/superadmin/departments", icon: "business" },
+  { name: "Manage Departments", path: "/superadmin/DepartmentManagement", icon: "domain" },
+  { name: "Manage Admin", path: "/superadmin/AdminManagement", icon: "book" },
   // Add 'Admins' if you have created a route and component for it
   // { name: "Manage Admins", path: "/superadmin/admins", icon: "supervisor_account" }, 
 ];

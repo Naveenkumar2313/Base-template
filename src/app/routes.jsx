@@ -28,6 +28,8 @@ const IndirectAttainmentAdminPage = lazy(() => import("./views/marks-management/
 // --- SUPER ADMIN IMPORTS ---
 const SuperAdminDashboard = lazy(() => import("./views/marks-management/SuperAdmin/SuperAdminDashboard"));
 const DepartmentAttainmentPage = lazy(() => import("./views/marks-management/SuperAdmin/DepartmentAttainmentPage"));
+const DepartmentManagement = lazy(() => import("./views/marks-management/SuperAdmin/DepartmentManagement"));
+const AdminManagement = lazy(() => import("./views/marks-management/SuperAdmin/AdminManagement"));
 
 const routes = [
   { path: "/", element: <Navigate to="/session/signin" /> },
@@ -61,6 +63,8 @@ const routes = [
       // --- SUPER ADMIN ROUTES ---
       { path: "/superadmin/dashboard", element: <SuperAdminDashboard /> },
       { path: "/superadmin/departments", element: <DepartmentAttainmentPage /> },
+      {path: "/superadmin/DepartmentManagement", element: <DepartmentManagement />},
+      {path: "/superadmin/AdminManagement", element: <AdminManagement />}
     ]
   },
   
