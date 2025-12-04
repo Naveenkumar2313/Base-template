@@ -12,6 +12,7 @@ export const facultyNavigations = [
   { name: "Indirect CO", path: "/faculty/indirect-co", icon: "description" },
   { name: "CO-PO Attainment", path: "/faculty/copo-attainment", icon: "track_changes" },
   { name: "Reports", path: "/faculty/AttainmentReportPage", icon: "assessment" },
+  { name: "FacultyConfigurationPage", path: "/faculty/configuration", icon: "settings" }
 ];
 
 // Navigation items for ADMIN role
@@ -26,6 +27,7 @@ export const adminNavigations = [
   { name: "Program Matrix", path: "/admin/program-matrix", icon: "table_chart" },
   { name: "Evaluation Result", path: "/admin/evaluation-result", icon: "assessment" },
   { name: "Indirect Attainment", path: "/admin/indirect-attainment", icon: "description" },
+  { name: "AdminConfigurationpage", path: "/admin/configuration", icon: "settings" },
 ];
 
 // Navigation items for SUPER ADMIN role

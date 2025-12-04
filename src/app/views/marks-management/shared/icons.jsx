@@ -14,7 +14,8 @@ import {
   Users,
   ShieldCheck,
   PlusCircle,
-  Trash2
+  Trash2,
+  Settings
 } from 'lucide-react';
 
 export const Icons = {
@@ -34,4 +35,5 @@ export const Icons = {
   Admin: ShieldCheck,
   PlusCircle: PlusCircle,
   Trash2: Trash2,
+  Settings: Settings
 };

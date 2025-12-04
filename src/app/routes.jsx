@@ -13,6 +13,7 @@ const MarksEntryPage = lazy(() => import("./views/marks-management/Faculty/Marks
 const IndirectCoPage = lazy(() => import("./views/marks-management/Faculty/IndirectCoAttainmentPage"));
 const CoPoAttainmentPage = lazy(() => import("./views/marks-management/Faculty/CoPoAttainmentPage"));
 const AttainmentReportPage = lazy(() => import("./views/marks-management/Faculty/AttainmentReportPage"));
+const FacultyConfigurationPage = lazy(() => import("./views/marks-management/Faculty/FacultyConfigurationPage"));
 
 // --- ADMIN IMPORTS ---
 const AdminDashboard = lazy(() => import("./views/marks-management/Admin/AdminDashboard"));
@@ -24,6 +25,7 @@ const ConsolidatedMatrixPage = lazy(() => import("./views/marks-management/Admin
 const ProgramLevelMatrixPage = lazy(() => import("./views/marks-management/Admin/ProgramLevelMatrixPage"));
 const EvaluationResultPage = lazy(() => import("./views/marks-management/Admin/EvaluationResultPage"));
 const IndirectAttainmentAdminPage = lazy(() => import("./views/marks-management/Admin/IndirectAttainmentPage"));
+const AdminConfigurationpage = lazy(() => import("./views/marks-management/Admin/AdminConfigurationpage"));
 
 // --- SUPER ADMIN IMPORTS ---
 const SuperAdminDashboard = lazy(() => import("./views/marks-management/SuperAdmin/SuperAdminDashboard"));
@@ -48,6 +50,7 @@ const routes = [
       { path: "/faculty/indirect-co", element: <IndirectCoPage /> },
       { path: "/faculty/copo-attainment", element: <CoPoAttainmentPage /> },
       { path: "/faculty/AttainmentReportPage", element: <AttainmentReportPage /> },
+      { path: "/faculty/configuration", element: <FacultyConfigurationPage /> },
 
       // --- ADMIN ROUTES ---
       { path: "/admin/dashboard", element: <AdminDashboard /> },
@@ -59,6 +62,7 @@ const routes = [
       { path: "/admin/program-matrix", element: <ProgramLevelMatrixPage /> },
       { path: "/admin/evaluation-result", element: <EvaluationResultPage /> },
       { path: "/admin/indirect-attainment", element: <IndirectAttainmentAdminPage /> },
+      { path: "/admin/configuration", element: <AdminConfigurationpage /> },
 
       // --- SUPER ADMIN ROUTES ---
       { path: "/superadmin/dashboard", element: <SuperAdminDashboard /> },
